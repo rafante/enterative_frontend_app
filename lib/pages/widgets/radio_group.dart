@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:responsive_ui/responsive_ui.dart';
 
 class RadioGroup extends StatefulWidget {
   final String label;
@@ -38,6 +37,7 @@ class _RadioGroupState extends State<RadioGroup> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(widget.label, style: labelStyle),
+        SizedBox(height: 5),
         ...List.generate(widget.possibleLabels.length, (index) {
           String label = widget.possibleLabels[index];
           return Row(

@@ -57,9 +57,7 @@ class AffiliatePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Responsive(children: [
-              Div(child: razaoSocialWidget(), colL: 4, colM: 4, colS: 4)
-            ]),
+            Responsive(children: [Div(child: razaoSocialWidget(), colL: 4, colM: 4, colS: 4)]),
             SizedBox(height: 10),
             Responsive(children: [
               Div(child: fantasiaWidget(), colL: 4, colM: 4, colS: 4),
@@ -67,6 +65,47 @@ class AffiliatePage extends StatelessWidget {
             SizedBox(height: 10),
             Responsive(children: [
               Div(child: tipoLojaWidget(), colL: 4, colM: 4, colS: 4),
+            ]),
+            SizedBox(height: 10),
+            Responsive(children: [
+              Div(child: cnpjWidget(), colL: 4, colM: 4, colS: 4),
+              Div(child: inscricaoEstadualWidget(), colL: 4, colM: 4, colS: 4, offsetL: 2, offsetM: 2),
+            ]),
+            Responsive(children: [
+              Div(child: inscricaoMunicipalWidget(), colL: 4, colM: 4, colS: 4),
+            ]),
+            Responsive(children: [
+              Div(child: nomeResponsavel(), colL: 4, colM: 4, colS: 4),
+            ]),
+            Responsive(children: [
+              Div(child: cpfWidget(), colL: 4, colM: 4, colS: 4),
+            ]),
+            Responsive(children: [
+              Div(child: emailResponsavel(), colL: 4, colM: 4, colS: 4),
+            ]),
+            Responsive(children: [
+              Div(child: linkWidget(), colL: 4, colM: 4, colS: 4),
+            ]),
+            Responsive(children: [
+              Div(child: ramoAtividadeWidget(), colL: 4, colM: 4, colS: 4),
+            ]),
+            Responsive(children: [
+              Div(child: enderecoEmpresa(), colL: 4, colM: 4, colS: 4),
+            ]),
+            Responsive(children: [
+              Div(child: cpfWidget(), colL: 4, colM: 4, colS: 4),
+            ]),
+            Responsive(children: [
+              Div(child: telefonesWidget(), colL: 4, colM: 4, colS: 4),
+            ]),
+            Responsive(children: [
+              Div(child: fotoFachadaWidget(), colL: 4, colM: 4, colS: 4),
+            ]),
+            Responsive(children: [
+              Div(child: captchaWidget(), colL: 4, colM: 4, colS: 4),
+            ]),
+            Responsive(children: [
+              Div(child: btnSubmit(), colL: 4, colM: 4, colS: 4),
             ]),
           ],
         ),
@@ -104,17 +143,63 @@ class AffiliatePage extends StatelessWidget {
   }
 
   Widget razaoSocialWidget() {
-    return Container(
-      // height: 40,
-      child: TextInput('Razão Social'),
-    );
+    return Container(child: TextInput('Razão Social'));
   }
 
   Widget fantasiaWidget() {
-    return Container(
-      // height: 40,
-      child: TextInput('Fantasia'),
-    );
+    return Container(child: TextInput('Fantasia'));
+  }
+
+  Widget cnpjWidget() {
+    return Container(child: TextInput('Cnpj'));
+  }
+
+  Widget inscricaoEstadualWidget() {
+    return Container(child: TextInput('Inscrição Estadual'));
+  }
+
+  Widget inscricaoMunicipalWidget() {
+    return Container(child: TextInput('Inscrição Municipal'));
+  }
+
+  Widget nomeResponsavel() {
+    return Container(child: TextInput('Nome Completo do Responsável'));
+  }
+
+  Widget cpfWidget() {
+    return Container(child: TextInput('CPF'));
+  }
+
+  Widget emailResponsavel() {
+    return Container(child: TextInput('E-mail do responsável'));
+  }
+
+  Widget linkWidget() {
+    return Container(child: TextInput('Link'));
+  }
+
+  Widget ramoAtividadeWidget() {
+    return Container(child: TextInput('Ramo de Atividade'));
+  }
+
+  Widget enderecoEmpresa() {
+    return Container(child: TextInput('Endereço da Empresa'));
+  }
+
+  Widget telefonesWidget() {
+    return Container();
+  }
+
+  Widget fotoFachadaWidget() {
+    return Container();
+  }
+
+  Widget captchaWidget() {
+    return Container();
+  }
+
+  Widget btnSubmit() {
+    return Container();
   }
 
   Widget tipoLojaWidget() {

@@ -17,7 +17,7 @@ class TextInput extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          padding: EdgeInsets.only(bottom: 5, top: 5),
+          padding: EdgeInsets.only(bottom: 3, top: 18),
           child: Row(
             children: [
               Text(label, style: labelStyle),
@@ -29,7 +29,6 @@ class TextInput extends StatelessWidget {
         Container(
           height: 28,
           child: TextFormField(
-            // expands: true,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
             ),
