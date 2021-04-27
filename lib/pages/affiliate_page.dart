@@ -8,7 +8,6 @@ import 'package:frontend/pages/widgets/enterative_logo.dart';
 import 'package:frontend/pages/widgets/facade_pitcture.dart';
 import 'package:frontend/pages/widgets/phones.dart';
 import 'package:frontend/pages/widgets/shop_type.dart';
-import 'package:frontend/widgets/radio_group.dart';
 import 'package:frontend/widgets/text_input.dart';
 import 'package:frontend/utils/screen.dart';
 import 'package:responsive_ui/responsive_ui.dart';
@@ -68,15 +67,13 @@ class AffiliatePage extends StatelessWidget {
             Responsive(children: [
               Div(child: razaoSocialWidget(), colL: 4, colM: 4, colS: 4),
             ]),
-            SizedBox(height: 10),
             Responsive(children: [
               Div(child: fantasiaWidget(), colL: 4, colM: 4, colS: 4),
             ]),
-            SizedBox(height: 10),
+            SizedBox(height: 20),
             Responsive(children: [
               Div(child: ShopType(), colL: 4, colM: 4, colS: 4),
             ]),
-            SizedBox(height: 10),
             Responsive(children: [
               Div(child: cnpjWidget(), colL: 4, colM: 4, colS: 4),
               Div(child: inscricaoEstadualWidget(), colL: 4, colM: 4, colS: 4, offsetL: 2, offsetM: 2),
@@ -92,9 +89,7 @@ class AffiliatePage extends StatelessWidget {
             ]),
             Responsive(children: [
               Div(child: emailResponsavel(), colL: 4, colM: 4, colS: 4),
-            ]),
-            Responsive(children: [
-              Div(child: linkWidget(), colL: 4, colM: 4, colS: 4),
+              Div(child: linkWidget(), colL: 4, colM: 4, colS: 4, offsetL: 2, offsetM: 2),
             ]),
             Responsive(children: [
               Div(child: ramoAtividadeWidget(), colL: 4, colM: 4, colS: 4),

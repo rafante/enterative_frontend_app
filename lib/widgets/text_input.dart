@@ -13,28 +13,31 @@ class TextInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          padding: EdgeInsets.only(bottom: 3, top: 18),
-          child: Row(
-            children: [
-              Text(label, style: labelStyle),
-              SizedBox(width: 5),
-              Text('*', style: labelStyle.copyWith(color: Colors.red))
-            ],
-          ),
-        ),
-        Container(
-          height: 28,
-          child: TextFormField(
-            decoration: InputDecoration(
-              border: OutlineInputBorder(),
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 5),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            // padding: EdgeInsets.only(bottom: 3, top: 18),
+            child: Row(
+              children: [
+                Text(label, style: labelStyle),
+                SizedBox(width: 5),
+                Text('*', style: labelStyle.copyWith(color: Colors.red))
+              ],
             ),
           ),
-        ),
-      ],
+          Container(
+            height: 28,
+            child: TextFormField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
