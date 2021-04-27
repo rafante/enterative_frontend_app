@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/pages/widgets/radio_group.dart';
-import 'package:frontend/pages/widgets/text_input.dart';
+import 'package:frontend/pages/widgets/affiliated_logo.dart';
+import 'package:frontend/pages/widgets/be_a_partner.dart';
+import 'package:frontend/pages/widgets/btn_submit.dart';
+import 'package:frontend/pages/widgets/captcha.dart';
+import 'package:frontend/pages/widgets/company_address.dart';
+import 'package:frontend/pages/widgets/enterative_logo.dart';
+import 'package:frontend/pages/widgets/facade_pitcture.dart';
+import 'package:frontend/pages/widgets/phones.dart';
+import 'package:frontend/pages/widgets/shop_type.dart';
+import 'package:frontend/widgets/radio_group.dart';
+import 'package:frontend/widgets/text_input.dart';
 import 'package:frontend/utils/screen.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_ui/responsive_ui.dart';
 
 class AffiliatePage extends StatelessWidget {
@@ -29,7 +37,7 @@ class AffiliatePage extends StatelessWidget {
   Widget? makeWidgetByOrder(int order) {
     Map<int, Widget> widgetsByOrder = {
       0: logosWidget(),
-      1: beAPartnerWidget(),
+      1: BeAPartner(),
       2: formWidget(),
     };
     return widgetsByOrder[order];
@@ -42,9 +50,9 @@ class AffiliatePage extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          enterativeLogoWidget(),
+          EnterativeLogoWidget(_imgsHeight),
           SizedBox(width: 70),
-          affiliatedLogoWidget(),
+          AffiliatedLogo(_imgsHeight),
         ],
       ),
     );
@@ -57,14 +65,16 @@ class AffiliatePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Responsive(children: [Div(child: razaoSocialWidget(), colL: 4, colM: 4, colS: 4)]),
+            Responsive(children: [
+              Div(child: razaoSocialWidget(), colL: 4, colM: 4, colS: 4),
+            ]),
             SizedBox(height: 10),
             Responsive(children: [
               Div(child: fantasiaWidget(), colL: 4, colM: 4, colS: 4),
             ]),
             SizedBox(height: 10),
             Responsive(children: [
-              Div(child: tipoLojaWidget(), colL: 4, colM: 4, colS: 4),
+              Div(child: ShopType(), colL: 4, colM: 4, colS: 4),
             ]),
             SizedBox(height: 10),
             Responsive(children: [
@@ -90,53 +100,24 @@ class AffiliatePage extends StatelessWidget {
               Div(child: ramoAtividadeWidget(), colL: 4, colM: 4, colS: 4),
             ]),
             Responsive(children: [
-              Div(child: enderecoEmpresa(), colL: 4, colM: 4, colS: 4),
+              Div(child: CompanyAddress(), colL: 4, colM: 4, colS: 4),
             ]),
             Responsive(children: [
               Div(child: cpfWidget(), colL: 4, colM: 4, colS: 4),
             ]),
             Responsive(children: [
-              Div(child: telefonesWidget(), colL: 4, colM: 4, colS: 4),
+              Div(child: Phones(), colL: 4, colM: 4, colS: 4),
             ]),
             Responsive(children: [
-              Div(child: fotoFachadaWidget(), colL: 4, colM: 4, colS: 4),
+              Div(child: FacadePicture(), colL: 4, colM: 4, colS: 4),
             ]),
             Responsive(children: [
-              Div(child: captchaWidget(), colL: 4, colM: 4, colS: 4),
+              Div(child: Captcha(), colL: 4, colM: 4, colS: 4),
             ]),
             Responsive(children: [
-              Div(child: btnSubmit(), colL: 4, colM: 4, colS: 4),
+              Div(child: BtnSubmit(), colL: 4, colM: 4, colS: 4),
             ]),
           ],
-        ),
-      ),
-    );
-  }
-
-  Widget enterativeLogoWidget() {
-    return Image.asset(
-      'assets/img/enterative_logo.png',
-      height: _imgsHeight,
-    );
-  }
-
-  Widget affiliatedLogoWidget() {
-    return Image.asset(
-      'assets/img/mentes_que_pensam_logo.jpg',
-      height: _imgsHeight,
-    );
-  }
-
-  Widget beAPartnerWidget() {
-    return Container(
-      alignment: Alignment.centerLeft,
-      height: 100,
-      child: Text(
-        'Seja um Parceiro',
-        style: GoogleFonts.aBeeZee(
-          fontWeight: FontWeight.bold,
-          color: Color(0xff555555),
-          fontSize: 28,
         ),
       ),
     );
@@ -180,38 +161,5 @@ class AffiliatePage extends StatelessWidget {
 
   Widget ramoAtividadeWidget() {
     return Container(child: TextInput('Ramo de Atividade'));
-  }
-
-  Widget enderecoEmpresa() {
-    return Container(child: TextInput('Endereço da Empresa'));
-  }
-
-  Widget telefonesWidget() {
-    return Container();
-  }
-
-  Widget fotoFachadaWidget() {
-    return Container();
-  }
-
-  Widget captchaWidget() {
-    return Container();
-  }
-
-  Widget btnSubmit() {
-    return Container();
-  }
-
-  Widget tipoLojaWidget() {
-    return Container(
-      // height: 40,
-      child: RadioGroup(
-        label: 'Tipo de Loja',
-        possibleLabels: ['Física', 'Virtual', 'Ambas'],
-        onIndexSelected: (i) {
-          print('Marcou o $i');
-        },
-      ),
-    );
   }
 }
