@@ -24,6 +24,7 @@ class CompanyAddress extends StatelessWidget {
               Text('*', style: labelStyle.copyWith(color: Colors.red))
             ],
           ),
+          SizedBox(height: 10),
           fieldsWidgets(),
         ],
       ),

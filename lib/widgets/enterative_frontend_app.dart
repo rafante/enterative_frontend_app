@@ -7,8 +7,14 @@ class EnterativeFrontendApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.light().copyWith(scaffoldBackgroundColor: Colors.white),
       initialRoute: AffiliatePage.routeName,
-      routes: {
-        AffiliatePage.routeName: (ctx) => AffiliatePage(),
+      onGenerateRoute: (settings) {
+        print(settings.arguments);
+      },
+      onGenerateInitialRoutes: (initialRoute) {
+        print(initialRoute);
+        return [
+          MaterialPageRoute(builder: (ctx) => AffiliatePage(initialRoute)),
+        ];
       },
     );
   }

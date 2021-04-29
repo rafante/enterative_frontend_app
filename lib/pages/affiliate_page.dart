@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:frontend/pages/widgets/affiliated_logo.dart';
 import 'package:frontend/pages/widgets/be_a_partner.dart';
 import 'package:frontend/pages/widgets/btn_submit.dart';
@@ -8,17 +9,36 @@ import 'package:frontend/pages/widgets/enterative_logo.dart';
 import 'package:frontend/pages/widgets/facade_pitcture.dart';
 import 'package:frontend/pages/widgets/phones.dart';
 import 'package:frontend/pages/widgets/shop_type.dart';
-import 'package:frontend/widgets/text_input.dart';
+import 'package:frontend/widgets/enterative_input.dart';
 import 'package:frontend/utils/screen.dart';
 import 'package:responsive_ui/responsive_ui.dart';
 
-class AffiliatePage extends StatelessWidget {
+class AffiliatePage extends StatefulWidget {
   static String routeName = '/affiliate';
+  final String affiliateId;
+
+  AffiliatePage(this.affiliateId);
+
+  @override
+  _AffiliatePageState createState() => _AffiliatePageState();
+}
+
+class _AffiliatePageState extends State<AffiliatePage> {
   final double _imgsHeight = 110;
 
   @override
   Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: rootBundle.loadString('assets/settings.yaml'),
+      builder: (context, snapshot) {
+        return mainWidget();
+      },
+    );
+  }
+
+  Widget mainWidget() {
     return Scaffold(
+      appBar: AppBar(title: Text(widget.affiliateId)),
       body: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: Tools.screenWidth(context, 20),
@@ -51,7 +71,7 @@ class AffiliatePage extends StatelessWidget {
         children: [
           EnterativeLogoWidget(_imgsHeight),
           SizedBox(width: 70),
-          AffiliatedLogo(_imgsHeight),
+          AffiliatedLogo(height: _imgsHeight, imgPath: widget.affiliateId),
         ],
       ),
     );
@@ -74,6 +94,7 @@ class AffiliatePage extends StatelessWidget {
             Responsive(children: [
               Div(child: ShopType(), colL: 4, colM: 4, colS: 4),
             ]),
+            SizedBox(height: 20),
             Responsive(children: [
               Div(child: cnpjWidget(), colL: 4, colM: 4, colS: 4),
               Div(child: inscricaoEstadualWidget(), colL: 4, colM: 4, colS: 4, offsetL: 2, offsetM: 2),
@@ -98,9 +119,6 @@ class AffiliatePage extends StatelessWidget {
               Div(child: CompanyAddress(), colL: 4, colM: 4, colS: 4),
             ]),
             Responsive(children: [
-              Div(child: cpfWidget(), colL: 4, colM: 4, colS: 4),
-            ]),
-            Responsive(children: [
               Div(child: Phones(), colL: 4, colM: 4, colS: 4),
             ]),
             Responsive(children: [
@@ -119,42 +137,42 @@ class AffiliatePage extends StatelessWidget {
   }
 
   Widget razaoSocialWidget() {
-    return Container(child: TextInput('Razão Social'));
+    return Container(child: EnterativeInput('Razão Social'));
   }
 
   Widget fantasiaWidget() {
-    return Container(child: TextInput('Fantasia'));
+    return Container(child: EnterativeInput('Fantasia'));
   }
 
   Widget cnpjWidget() {
-    return Container(child: TextInput('Cnpj'));
+    return Container(child: EnterativeInput('Cnpj'));
   }
 
   Widget inscricaoEstadualWidget() {
-    return Container(child: TextInput('Inscrição Estadual'));
+    return Container(child: EnterativeInput('Inscrição Estadual'));
   }
 
   Widget inscricaoMunicipalWidget() {
-    return Container(child: TextInput('Inscrição Municipal'));
+    return Container(child: EnterativeInput('Inscrição Municipal'));
   }
 
   Widget nomeResponsavel() {
-    return Container(child: TextInput('Nome Completo do Responsável'));
+    return Container(child: EnterativeInput('Nome Completo do Responsável'));
   }
 
   Widget cpfWidget() {
-    return Container(child: TextInput('CPF'));
+    return Container(child: EnterativeInput('CPF'));
   }
 
   Widget emailResponsavel() {
-    return Container(child: TextInput('E-mail do responsável'));
+    return Container(child: EnterativeInput('E-mail do responsável'));
   }
 
   Widget linkWidget() {
-    return Container(child: TextInput('Link'));
+    return Container(child: EnterativeInput('Link'));
   }
 
   Widget ramoAtividadeWidget() {
-    return Container(child: TextInput('Ramo de Atividade'));
+    return Container(child: EnterativeInput('Ramo de Atividade'));
   }
 }

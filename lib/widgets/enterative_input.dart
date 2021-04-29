@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class TextInput extends StatelessWidget {
+class EnterativeInput extends StatelessWidget {
   final String label;
   final TextStyle labelStyle = GoogleFonts.roboto(
     fontWeight: FontWeight.bold,
@@ -9,7 +9,7 @@ class TextInput extends StatelessWidget {
     fontSize: 15,
   );
 
-  TextInput(this.label);
+  EnterativeInput(this.label);
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +32,7 @@ class TextInput extends StatelessWidget {
             height: 28,
             child: TextFormField(
               decoration: InputDecoration(
+                contentPadding: EdgeInsets.symmetric(horizontal: 6),
                 border: OutlineInputBorder(),
               ),
             ),
