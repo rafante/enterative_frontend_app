@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
+  dio: ^4.0.0
   file_picker: ^3.0.1
   google_fonts: ^2.0.0
   responsive_ui: ^2.1.0
@@ -45,7 +46,9 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/img/enterative_logo.png
+    - assets/settings.yaml
     - assets/img/mentes_que_pensam_logo.jpg
+    - assets/img/zix_informatica.jpeg
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

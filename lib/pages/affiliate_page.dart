@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:frontend/affiliate_info.dart';
 import 'package:frontend/pages/widgets/affiliated_logo.dart';
 import 'package:frontend/pages/widgets/be_a_partner.dart';
 import 'package:frontend/pages/widgets/btn_submit.dart';
@@ -7,6 +8,7 @@ import 'package:frontend/pages/widgets/captcha.dart';
 import 'package:frontend/pages/widgets/company_address.dart';
 import 'package:frontend/pages/widgets/enterative_logo.dart';
 import 'package:frontend/pages/widgets/facade_pitcture.dart';
+import 'package:frontend/pages/widgets/mentes_que_pensam_logo.dart';
 import 'package:frontend/pages/widgets/phones.dart';
 import 'package:frontend/pages/widgets/shop_type.dart';
 import 'package:frontend/widgets/enterative_input.dart';
@@ -24,21 +26,28 @@ class AffiliatePage extends StatefulWidget {
 }
 
 class _AffiliatePageState extends State<AffiliatePage> {
-  final double _imgsHeight = 110;
+  late AffiliateInfo affiliateInfo;
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: rootBundle.loadString('assets/settings.yaml'),
+    return FutureBuilder<String>(
+      future: rootBundle.loadString('assets/settings.yaml', cache: false),
       builder: (context, snapshot) {
+        if (snapshot.connectionState != ConnectionState.done) return LinearProgressIndicator();
+        var afInfo = AffiliateInfo.getFromRoute(snapshot.data!, widget.affiliateId);
+        if (afInfo == null) return notFoundWidget();
+        affiliateInfo = afInfo;
         return mainWidget();
       },
     );
   }
 
+  Widget notFoundWidget() {
+    return Material(child: Center(child: Text('Não encontrado')));
+  }
+
   Widget mainWidget() {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.affiliateId)),
       body: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: Tools.screenWidth(context, 20),
@@ -67,11 +76,11 @@ class _AffiliatePageState extends State<AffiliatePage> {
       height: 150,
       alignment: Alignment.center,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          EnterativeLogoWidget(_imgsHeight),
-          SizedBox(width: 70),
-          AffiliatedLogo(height: _imgsHeight, imgPath: widget.affiliateId),
+          MentesQuePensamLogo(50),
+          AffiliatedLogo(height: 130, imgPath: affiliateInfo.imgPath),
         ],
       ),
     );

@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AffiliatedLogo extends StatelessWidget {
-  final String imgPath;
+class MentesQuePensamLogo extends StatelessWidget {
   final double height;
-  AffiliatedLogo({required this.imgPath, required this.height});
+  MentesQuePensamLogo(this.height);
 
   @override
   Widget build(BuildContext context) {
     return Image.asset(
-      imgPath,
+      'assets/img/mentes_que_pensam_logo.jpg',
       height: height,
     );
   }
